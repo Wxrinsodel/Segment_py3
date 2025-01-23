@@ -23,26 +23,17 @@ plt.show()
 
 """
 
-x = np.linspace(-3, 3, 100)
-y = np.linspace(-3, 3, 100)
-X, Y = np.meshgrid(x, y)
+bars = np.loadtxt('values_for_bars.csv', delimiter=',')
 
 
-Z = np.sin(3 * X) * Y
+unique, counts = np.unique(bars, return_counts=True)
 
-fig = plt.figure(figsize=(10, 8))
-ax = fig.add_subplot(111, projection='3d')
-surf = ax.plot_surface(X, Y, Z, cmap='viridis',)
-
-
-fig.colorbar(surf, shrink=0.5, aspect=5)
-
-
-ax.set_xlabel('X')
-ax.set_ylabel('Y')
-ax.set_zlabel('Z')
-ax.set_title('f(x,y) = x*y')
-
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.bar(unique, counts)
+plt.title('Bar Plot of Unique Values')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
 
 plt.tight_layout()
 plt.show()
