@@ -28,7 +28,7 @@ y = np.linspace(-3, 3, 100)
 X, Y = np.meshgrid(x, y)
 
 
-Z = X**2 + Y**2
+Z = np.sin(3 * X) * Y
 
 fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
