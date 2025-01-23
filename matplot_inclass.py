@@ -29,7 +29,6 @@ bars = np.loadtxt('values_for_bars.csv', delimiter=',')
 unique, counts = np.unique(bars, return_counts=True)
 
 plt.figure(figsize=(10, 5))
-plt.subplot(1, 2, 1)
 plt.bar(unique, counts)
 plt.title('Bar Plot of Unique Values')
 plt.xlabel('Value')
