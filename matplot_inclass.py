@@ -23,16 +23,13 @@ plt.show()
 
 """
 
-bars = np.loadtxt('values_for_bars.csv', delimiter=',')
+hist = np.loadtxt('values_for_hist.csv')
 
-
-unique, counts = np.unique(bars, return_counts=True)
-
-plt.figure(figsize=(10, 5))
-plt.bar(unique, counts)
-plt.title('Bar Plot of Unique Values')
+plt.hist(hist, bins= 'auto', edgecolor='black')
+plt.title('Histogram of Real Numbers')
 plt.xlabel('Value')
 plt.ylabel('Frequency')
+
 
 plt.tight_layout()
 plt.show()
