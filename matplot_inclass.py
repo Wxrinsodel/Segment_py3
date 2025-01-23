@@ -28,7 +28,7 @@ y = np.linspace(-3, 3, 100)
 X, Y = np.meshgrid(x, y)
 
 
-Z = X * Y
+Z = X**2 + Y**2
 
 fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
@@ -42,6 +42,7 @@ ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')
 ax.set_title('f(x,y) = x*y')
+
 
 plt.tight_layout()
 plt.show()
