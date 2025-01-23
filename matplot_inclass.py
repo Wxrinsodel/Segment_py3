@@ -1,22 +1,21 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 
+points = np.loadtxt('points.csv', delimiter=',')
+distances = np.loadtxt('distances.csv')
 
-x = np.linspace(-10, 10, 100)  
-f_x1 = x**2        # f(x) = x^2 
-f_x2 = x * np.sin(2 * x)  # f(x) = x * sin(2*x)
-f_x3 = np.arctan(x)     # f(x) = arctan
+plt.figure(figsize=(10, 8))
+scatter = plt.scatter(points[:, 0], points[:, 1], 
+                      c=distances, 
+                      cmap='viridis', #perceptually uniform colormap that transitions smoothly
+                      s=50,  
+                      alpha=0.7)  # transparency
 
-#
-plt.plot(x, f_x1, label='f(x) = x^2 ', color='green', linestyle='solid', marker='_')
-plt.plot(x, f_x2, label='f(x) = x * sin(2*x)', color='red', linestyle='dashed', marker='_')
-plt.plot(x, f_x3, label='f(x) = arctg(x)', color='Blue', linestyle='dotted', marker='_')
+plt.colorbar(scatter, label='Distance')
+plt.title('Scatter Plot of Points Colored by Distances')
+plt.xlabel('X Coordinate')
+plt.ylabel('Y Coordinate')
+plt.grid(True, linestyle='--', alpha=0.7)
 
-
-plt.title('Graphs of f(x) = x^2, f(x) = x * sin(2*x), and f(x) = arctg(x)')
-plt.xlabel('x')
-plt.ylabel('f(x)')
-plt.legend()
-
-plt.grid()
+plt.tight_layout()
 plt.show()
